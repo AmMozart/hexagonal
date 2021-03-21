@@ -31,7 +31,6 @@ const Button = ({ value, radius, changeRadius, loadHexagon, createField, clearFi
         onClick={clickHandle}
       />
       <label htmlFor={`radio-${value}`}>{value}</label>
-
     </div>
   )
 }
