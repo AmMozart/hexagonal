@@ -4,7 +4,7 @@ import { serverURL } from '../config'
 const initialState = {
   radius: 2,
   status: 'playing',
-  server: serverURL.remote
+  server: serverURL.local
 }
 
 const info = (state = initialState, action) => {

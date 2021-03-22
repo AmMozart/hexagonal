@@ -33,13 +33,13 @@ const Hexagon = ({ x, y, z, value }) => {
         data-value={value}>
         {value ? value : ''}
       </div>
-
       <div className={style.activeHexagon}
         style={{
           height, width, left, top,
           display: `${value > 0 ? 'block' : 'none'}`
         }}>
-        <svg fill="none" viewBox="0 0 190 164" xmlns="http://www.w3.org/2000/svg">
+
+        <svg height width fill="none" viewBox="0 0 190 164" xmlns="http://www.w3.org/2000/svg">
           <path d="M47.3255 163.2L0 81.836L46.3707 0H142.802L190 82.3093L143.757 163.2H47.3255Z" fill={color}></path>
         </svg>
       </div>
