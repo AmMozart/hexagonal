@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { serverURL } from '../config'
 import PropTypes from 'prop-types'
 import { changeServer } from '../actions/changeServer'
@@ -8,12 +8,16 @@ import { loadHexagon } from '../actions/loadHexagon'
 import { connect } from 'react-redux'
 
 const Select = ({ changeServer, clearField, createField, loadHexagon, server }) => {
+
   const selectHandle = e => {
     changeServer(e.target.options[e.target.selectedIndex].value)
+  }
+
+  useEffect(() => {
     clearField()
     createField()
     loadHexagon()
-  }
+  }, [server, clearField, createField, loadHexagon])
 
   return (
     <div>

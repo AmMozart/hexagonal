@@ -3,6 +3,8 @@ import {
   LOAD_HEXAGON_FAILURE,
   LOAD_HEXAGON_STARTED
 } from './types'
+import { serverURL } from '../config'
+import { changeServer } from '../actions/changeServer'
 import { store } from '../store'
 
 export const loadHexagon = () => {
@@ -23,6 +25,7 @@ export const loadHexagon = () => {
       })
       .catch(err => {
         dispatch(loadHexagonFailure(err.message))
+        dispatch(changeServer(serverURL.remote))
       })
   }
 }

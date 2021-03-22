@@ -2,9 +2,6 @@ import style from './Hexagonal.module.css'
 import BattleField from './BattleField'
 import RadiusButtons from './RadiusButtons'
 import { useEffect } from 'react'
-import { createField } from '../actions/createField'
-import { loadHexagon } from '../actions/loadHexagon'
-import { store } from '../store'
 import { moveTo } from '../Keyboard'
 import Status from './Status'
 import { AMOUNT_RADIUS_BUTTONS } from '../config'
@@ -14,8 +11,6 @@ function Hexagonal() {
 
   useEffect(() => {
     document.addEventListener('keydown', e => moveTo(e.key))
-    store.dispatch(loadHexagon())
-    store.dispatch(createField())
   }, [])
 
   return (
