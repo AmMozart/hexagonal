@@ -18,8 +18,8 @@ const Select = ({ changeServer, clearField, createField, loadHexagon }) => {
   return (
     <div>
       <select id="url-server" onChange={selectHandle}>
-        <option id="localhost" value={serverURL.local}>Local server</option>
         <option id="remote" value={serverURL.remote}>Remote server</option>
+        <option id="localhost" value={serverURL.local}>Local server</option>
       </select>
       <hr />
     </div>
