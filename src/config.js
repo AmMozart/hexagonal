@@ -1,4 +1,4 @@
-export const AMOUNT_RADIUS_BUTTONS = 19
+export const AMOUNT_RADIUS_BUTTONS = 14
 
 export const serverURL = {
   local: 'http://localhost:13337/',

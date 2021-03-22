@@ -51,14 +51,14 @@ export function moveTo(key) {
         { ...x, value: nums.pop() || 0 }
       )))
     }
-    let tmp = JSON.stringify(store.getState().field.hexagon)
+    let tmp = store.getState().field.hexagon
     store.dispatch({
       type: LOAD_HEXAGON_SUCCESS,
       payload: result
     })
 
-    if (JSON.stringify(result) !== tmp)
-
+    const prepare = arr => JSON.stringify(arr.sort((a, b) => (a.x + (a.y - a.z)) - (b.x + (b.y - b.z))))
+    if (prepare(result) !== prepare(tmp))
       store.dispatch(loadHexagon())
   }
 }

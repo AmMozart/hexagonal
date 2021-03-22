@@ -7,7 +7,7 @@ import { createField } from '../actions/createField'
 import { loadHexagon } from '../actions/loadHexagon'
 import { connect } from 'react-redux'
 
-const Select = ({ changeServer, clearField, createField, loadHexagon }) => {
+const Select = ({ changeServer, clearField, createField, loadHexagon, server }) => {
   const selectHandle = e => {
     changeServer(e.target.options[e.target.selectedIndex].value)
     clearField()
@@ -17,9 +17,9 @@ const Select = ({ changeServer, clearField, createField, loadHexagon }) => {
 
   return (
     <div>
-      <select id="url-server" onChange={selectHandle}>
-        <option id="localhost" value={serverURL.local}>Local server</option>
+      <select id="url-server" onChange={selectHandle} value={server}>
         <option id="remote" value={serverURL.remote}>Remote server</option>
+        <option id="localhost" value={serverURL.local}>Local server</option>
       </select>
       <hr />
     </div>
@@ -40,4 +40,4 @@ const mapDispatcToProps = dispatch => ({
   clearField: () => dispatch(clearField())
 })
 
-export default connect(null, mapDispatcToProps)(Select)
+export default connect(state => ({ server: state.info.server }), mapDispatcToProps)(Select)
